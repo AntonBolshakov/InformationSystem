@@ -1,0 +1,2 @@
+# InformationSystem
+Демонстрационное приложение для библиотеки RegressionModels
