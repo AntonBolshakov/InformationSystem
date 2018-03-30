@@ -1,2 +1,2 @@
 # InformationSystem
-Демонстрационное приложение для библиотеки RegressionModels
+WPF-приложение для демонстрации библиотеки  "RegressionModels"
