@@ -1,0 +1,79 @@
+﻿<Window x:Class="Regression_models.Information_System_For_Regression_Analysis"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Name="RegressionModels" Title="Регрессионные модели обработки данных" MinHeight="600" MinWidth="785" SizeToContent="Manual" ResizeMode="CanResize"
+        IsEnabled="True" WindowStartupLocation="CenterScreen" SizeChanged="SizeScreenChanged" Closing="ExitToProgram" DataContext="{Binding RelativeSource={RelativeSource Self}, Path=Background.Dispatcher}">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source ="MyStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    
+    <Grid Name="MainGrid" Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- Фон для приложения -->
+        <Label  BorderBrush="Black" BorderThickness="1" Name="Fon" Style="{StaticResource FonForProgram}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Panel.ZIndex="0" Grid.RowSpan="3"></Label>
+        
+        <!-- Верхнее меню -->
+        <Grid Name="TopMenuGrid" Grid.Row="1" Grid.Column="0">
+            <Menu Style="{StaticResource Menu}">
+                <MenuItem Name="Files" Header="Файл" Style="{StaticResource MenuItems}">
+                    <MenuItem Margin="0,1,0,2" Name="Data" Header="Набор данных">
+                        <MenuItem Margin="0,1,0,2" Name="Load" Header="Загрузить данные">
+                            <MenuItem Margin="0,1,0,2" Name="LoadTxt" Header="Загрузить из txt файла" Click="LoadingOutFile_Click"/>
+                            <MenuItem Margin="0,1,0,2" Name="LoadXml" Header="Загрузить из xml файла" Click="LoadingOutFile_Click"/>
+                        </MenuItem>
+                        <MenuItem Margin="0,1,0,2" Name="Save" Header="Сохранить данные">
+                            <MenuItem Margin="0,1,0,2" Name="SaveTxt" Header="Сохранить в txt файл" Click="SaveInFile_Click"/>
+                            <MenuItem Margin="0,1,0,2" Name="SaveXml" Header="Сохранить в xml файл" Click="SaveInFile_Click"/>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Margin="0,1,0,2" Name="SaveChart" Header="Сохранить график" Click="SaveChart_Click" IsEnabled="True"/>
+                    <MenuItem Margin="0,1,0,2" Name="SaveReport" Header="Сохранить результаты" IsEnabled="False" Click="ResultButtons_Click"/>
+                    <MenuItem Margin="0,1,0,2" Name="Exit" Header="Выйти из программы" Click="ExitToProgram_Click"/>
+                </MenuItem>
+                <MenuItem Name="View" Header="Отображение" Style="{StaticResource MenuItems}">
+                    <MenuItem Margin="0,1,0,2" Name="Screen">
+                        <MenuItem Margin="0,1,0,2" Name="Screen1" Header="600 x 785" Click="Screen_Click" />
+                        <MenuItem Margin="0,1,0,2" Name="Screen2" Header="600 x 850" Click="Screen_Click" />
+                        <MenuItem Margin="0,1,0,2" Name="Screen3" Header="600 x 930" Click="Screen_Click" />
+                        <MenuItem Margin="0,1,0,2" Name="Screen4" Header="650 x 1024" Click="Screen_Click" />
+                        <MenuItem Margin="0,1,0,2" Name="Screen5" Header="710 x 1160" Click="Screen_Click" />
+                    </MenuItem>
+                    <MenuItem Margin="0,1,0,2" Name="TypeView">
+                        <MenuItem Margin="0,1,0,2" Name="TypeView1" Header="Оконный режим" Click="TypeView_Click" />
+                        <MenuItem Margin="0,1,0,2" Name="TypeView2" Header="Во весь экран" Click="TypeView_Click" />
+                    </MenuItem>
+                    <MenuItem Margin="0,1,0,2" Name="ScreenOptions" Header="Опции">
+                        <MenuItem Margin="0,1,0,2" Name="AutoSaveSizeScreen" Header="Автосохранение размеров" IsCheckable="True" IsChecked="True" Click="Save_Size_Screen_Click"/>
+                        <MenuItem Margin="0,1,0,2" Name="SaveSizeScreen" Header="Сохранить размеры" Click="Save_Size_Screen_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Name="EditingDataTable" Header="Данные" Style="{StaticResource MenuItems}">
+                    <MenuItem Margin="0,1,0,2" Name="EditingDataTable1" Header="Редактировать данные в таблице" Click="EditingDataTable_Click" IsCheckable="True" />
+                    <MenuItem Margin="0,1,0,2" Name="Number_Digits" Header="Количество знаков после запятой" Click="Number_Digits_Click"/>
+                    <MenuItem Margin="0,1,0,2" Name="Smoothing_Parameter" Header="Параметр сглаживания" Click="Smoothing_Parameter_Click"/>
+                </MenuItem>
+                <MenuItem Name="Help" Header="Справка" Style="{StaticResource MenuItems}">
+                    <MenuItem Name="Help1" Header="Справка" Click="Help_Click" />
+                    <MenuItem Name="AboutProgram" Header="О программе" Click="AboutProgram_Click" />
+                    <MenuItem Name="AboutAuthor" Header="О разработчике" Click="AboutAuthor_Click" />
+                </MenuItem>
+            </Menu>
+        </Grid>
+        
+        <!-- Контент программы -->
+        <Grid Name="ContentGrid" Grid.Row="2" Grid.Column="0" Margin="0,5,0,5" Background="#00DEA2A2">
+            <!-- Контент изменяется в соответсвии с кодом программы C# -->
+        </Grid>
+    </Grid>
+</Window>
+
